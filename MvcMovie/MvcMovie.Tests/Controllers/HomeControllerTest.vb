@@ -9,33 +9,22 @@ Imports MvcMovie
 
     <TestMethod()> Public Sub Index()
         ' Arrange
-        Dim controller As New HomeController()
+        Dim controller As HomeController = New HomeController()
 
         ' Act
-        Dim result As ViewResult = DirectCast(controller.Index(), ViewResult)
+        Dim result As ViewResult = CType(controller.Index(), ViewResult)
 
         ' Assert
         Dim viewData As ViewDataDictionary = result.ViewData
-        Assert.AreEqual("Modify this template to jump-start your ASP.NET MVC application.", viewData("Message"))
+        Assert.AreEqual("Welcome to ASP.NET MVC!", viewData("Message"))
     End Sub
 
     <TestMethod()> Public Sub About()
         ' Arrange
-        Dim controller As New HomeController()
+        Dim controller As HomeController = New HomeController()
 
         ' Act
-        Dim result As ViewResult = DirectCast(controller.About(), ViewResult)
-
-        ' Assert
-        Assert.IsNotNull(result)
-    End Sub
-
-    <TestMethod()> Public Sub Contact()
-        ' Arrange
-        Dim controller As New HomeController()
-
-        ' Act
-        Dim result As ViewResult = DirectCast(controller.Contact(), ViewResult)
+        Dim result As ViewResult = CType(controller.About(), ViewResult)
 
         ' Assert
         Assert.IsNotNull(result)
